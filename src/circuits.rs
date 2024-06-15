@@ -1,5 +1,5 @@
-pub(crate) mod fulladder;
-pub(crate) mod halfadder;
+pub mod fulladder;
+pub mod halfadder;
 
 #[cfg(test)]
 mod tests {
