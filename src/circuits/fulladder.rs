@@ -10,6 +10,7 @@ use crate::{
 /// A full adder is a circuit that performs the sum of three binary bits.
 /// It has three input pins (`input_a`, `input_b`, and `carry_in`), and two output pins (`sum` and `carry`).
 /// The `sum` pin contains the sum of the three input bits, and the `carry` pin contains the carry bit.
+#[derive(Clone, Copy)]
 pub struct FullAdder {
     /// The first input bit.
     input_a: bool,

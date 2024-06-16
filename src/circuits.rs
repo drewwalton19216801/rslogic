@@ -1,8 +1,10 @@
 pub mod fulladder;
 pub mod halfadder;
+pub mod eightbitadder;
 
 #[cfg(test)]
 mod tests {
+    use crate::circuits::eightbitadder::EightBitAdder;
     use crate::circuits::fulladder::FullAdder;
     use crate::circuits::halfadder::HalfAdder;
 
@@ -58,5 +60,23 @@ mod tests {
         let full_adder = FullAdder::new(true, true, true);
         assert_eq!(full_adder.sum(), true);
         assert_eq!(full_adder.carry(), true);
+    }
+
+    #[test]
+    fn eight_bit_adder() {
+        let mut adder = EightBitAdder::new();
+
+        let a = [true, false, true, false, true, false, true, false]; // 0b01010101 = 85
+        let b = [false, true, false, true, false, true, false, true]; // 0b10101010 = 170
+
+        let (sum, carry_out) = adder.add(a, b, false);
+
+        assert_eq!(sum, [true, true, true, true, true, true, true, true]); // 0b11111111 = 255
+        assert_eq!(carry_out, false);
+
+        let (sum, carry_out) = adder.add(a, b, true);
+
+        assert_eq!(sum, [false, false, false, false, false, false, false, false]); // 0b00000000 = 0
+        assert_eq!(carry_out, true);
     }
 }

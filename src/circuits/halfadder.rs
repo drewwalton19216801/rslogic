@@ -7,6 +7,7 @@ use crate::gates::xor::XorGate;
 /// A half adder is a basic circuit that performs the sum of two binary bits.
 /// It has two input pins (`input_a` and `input_b`), and two output pins (`sum` and `carry`).
 /// The `sum` pin contains the sum of the two input bits, and the `carry` pin contains the carry bit.
+#[derive(Clone, Copy)]
 pub struct HalfAdder {
     /// The first input bit.
     input_a: bool,
