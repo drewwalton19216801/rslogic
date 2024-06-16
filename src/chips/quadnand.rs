@@ -25,7 +25,7 @@ impl QuadNand {
         }
     }
 
-    pub fn output(&self, index: usize) -> bool {
+    fn output(&self, index: usize) -> bool {
         if index < self.gates.len() {
             self.gates[index].output()
         } else {
