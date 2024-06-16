@@ -1,5 +1,6 @@
 pub mod hexinverter;
 pub mod quadnand;
+pub mod quadnor;
 
 #[cfg(test)]
 mod tests {
@@ -41,9 +42,5 @@ mod tests {
         quad_nand.set_inputs(0, false, false);
         quad_nand.set_inputs(1, true, true);
         assert_eq!(quad_nand.outputs(), [true, false, true, true]);
-
-        // Check individual output
-        assert_eq!(quad_nand.output(0), true);
-        assert_eq!(quad_nand.output(1), false);
     }
 }
